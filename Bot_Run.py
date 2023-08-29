@@ -32,7 +32,7 @@ class Text_handler:
                 bot.send_message(message.chat.id, Convertate().convert(user_storage['conv_from'], user_storage['conv_to'], user_storage['amount']))
             elif (text_split[0] == text_split[1] in Cur.available_cur) and text_split[2]:
                 raise SameCurrencies
-            elif text_split[0].isalpha() == text_split[1].isalpha() and (text_split[0] in Cur.available_cur) and type(text_split[2]) is float or int:
+            elif text_split[0].isalpha() == text_split[1].isalpha() and (text_split[0] in Cur.available_cur):
                 raise IndexError
             else:
                 bot.send_message(message.chat.id, "Проверьте правильность введенных данных и повторите попытку снова: ")
