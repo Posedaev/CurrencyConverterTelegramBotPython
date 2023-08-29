@@ -4,18 +4,25 @@ import os
 
 class Storage:
     def update_from(self, user_id, value):
-        data = self.read(user_id)
-        data['conv_from'] = value
-        with open("Database/user_" + str(user_id), 'w') as file:
-            json.dump(data, file)
+        if value.isalpha():
+            data = self.read(user_id)
+            data['conv_from'] = value
+            with open("Database/user_" + str(user_id), 'w') as file:
+                json.dump(data, file)
+        else:
+            raise IndexError
 
     def update_to(self, user_id, value):
-        data = self.read(user_id)
-        data['conv_to'] = value
-        with open("Database/user_" + str(user_id), 'w') as file:
-            json.dump(data, file)
+        if value.isalpha():
+            data = self.read(user_id)
+            data['conv_to'] = value
+            with open("Database/user_" + str(user_id), 'w') as file:
+                json.dump(data, file)
+        else:
+            raise IndexError
 
     def update_amount(self, user_id, value):
+        str(value)
         data = self.read(user_id)
         data['amount'] = value
         with open("Database/user_" + str(user_id), 'w') as file:
